@@ -8,7 +8,7 @@ This Home Lab project aimed to create a controlled environment with virtual mach
 
 - Learnt how to set up, configure and manage virtual environments.
 - Experience in penetration testing with Metasploit.
-- Developed skills in network traffic analysis using Wireshark.
+- Developed skills in network configuration and  traffic analysis using Wireshark.
 - Ability to implement and configure firewall defenses with UFW.
 - Enhanced understanding of attack patterns and security vulnerabilities.
 - Development of critical thinking and problem-solving skills in cybersecurity.
@@ -41,7 +41,7 @@ Then Wireshark and UFW on Ubuntu, with `sudo apt install wireshark UFW`, and tur
 
 <img width="580" alt="Screenshot 2024-09-19 at 11 58 03" src="https://github.com/user-attachments/assets/9a969c81-0098-48cd-b02d-d20d50a6aa38">
 
-I got the hostname of my Ubuntu machine, which I would target from Kali, and the hostname of my Kali machine and allowed that host on Ubuntu.
+I got the hostname of my Ubuntu machine, so I could target it from Kali, and the hostname of my Kali machine and allowed that host on my Ubuntu UFW.
 
 <img width="642" alt="Screenshot 2024-09-19 at 13 27 52" src="https://github.com/user-attachments/assets/139ef7df-1351-4891-b23d-4da464a3c46d">
 
@@ -55,7 +55,7 @@ However the nmap scan showed no open ports on my Ubuntu VM, so I checked for ope
 
 <img width="926" alt="Screenshot 2024-09-19 at 14 03 54" src="https://github.com/user-attachments/assets/4391e4c6-3160-4634-8d7a-c4d7c4b2d1ab">
 
-Some of these seemed to be open but the nmap scan couldnt see them. I then decided to start a service on my Ubuntu VM, so I installed apache2 web server and started that. I could now see this service listening on port 80, HTTP.
+After some troubleshooting some of these seemed to be open but the nmap scan couldnt see them and I checked that my Kali could reach Ubuntu with `ping ...`. I then decided to start a service on my Ubuntu VM, so I installed apache2 web server and started that. I could now see this service listening on port 80, HTTP.
 
 <img width="935" alt="Screenshot 2024-09-19 at 14 05 52" src="https://github.com/user-attachments/assets/276a6fe6-4445-4e8d-be85-59f1d0535633">
 
@@ -63,7 +63,11 @@ I then ran a nmap -sV scan, to get the version of services, which returned an op
 
 <img width="767" alt="Screenshot 2024-09-19 at 14 09 56" src="https://github.com/user-attachments/assets/a9b2010c-86a4-40bf-be01-72b0117f6dd2">
 
+With Metasploit I was able to search for known vulnerabilities for the apache web server but nothing for the version I was using.
 
+<img width="1263" alt="Screenshot 2024-09-19 at 15 09 13" src="https://github.com/user-attachments/assets/03997e80-7b39-467b-9bba-ce12a6152c59">
+
+In conclusion, this project introduced my to many essential tools and skills, some of which I had never even heard of before, and massively helped me troublshoot issues. Also it sparked my curiousity and I want to continue playing around with tools like Metasploitable.
 
 ## Using Metasploitable as a target machine
 
