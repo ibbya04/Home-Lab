@@ -23,3 +23,4 @@ This Home Lab project aimed to create a controlled environment with virtual mach
 
 ## Steps
 
+I started by downloading the disc images for Ubuntu and Kali, then uploaded them into VMware.
