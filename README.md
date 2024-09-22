@@ -71,5 +71,34 @@ In conclusion, this project introduced my to many essential tools and skills, so
 
 ## Using Metasploitable as a target machine
 
-For Metasploitable, as it was for x86 architecture, I followed a tutorial to set it up on my macbook, which included coverting the .vmdk file to a .qcow2 (QEMU disk file), and then configured it in UTM 
+As I couldn't break into an up to date Ubuntu machine, I tried a intentionally vulnerable VM, Metasploitable. However, as ait is made for x86 architecture and I am using a mac, I had to emulate it using UTM. This included coverting the .vmdk file to a .qcow2 (QEMU disk file), and then configuring it in UTM.
+
+I got the IP address of the target metasploitable machine using `ifconfig`.
+
+<img width="840" alt="Screenshot 2024-09-22 at 14 26 03" src="https://github.com/user-attachments/assets/2b58a3f3-7220-4a98-8dc2-5969a63f6f43">
+
+Then I ran a nmap scan from my Kali machine, using -sV to get the versions of each of the services.
+
+<img width="612" alt="Screenshot 2024-09-22 at 14 32 45" src="https://github.com/user-attachments/assets/6d4bb12b-41fa-415a-864e-b9d60bb291f3">
+
+I chose the vsftpd 2.3.4 service to attempt to exploit so within the msfconsole I searched for exploits.
+
+<img width="978" alt="Screenshot 2024-09-22 at 14 37 52" src="https://github.com/user-attachments/assets/0e5cc99a-89ed-4fb7-8703-48d82bd5f215">
+
+I selected a exploit with `use exploit/unix/ftp/vsftpd_234_backdoor`. I then started to configure the options.
+
+<img width="1137" alt="Screenshot 2024-09-22 at 14 38 11" src="https://github.com/user-attachments/assets/9a574db9-640b-4196-ad7f-5cb24c2fea8f">
+
+I then set the RHOST, the IP address of the target machine, and selected the payload, only one available.
+
+<img width="1138" alt="Screenshot 2024-09-22 at 14 46 44" src="https://github.com/user-attachments/assets/7ed8f971-7823-4783-84a9-2ee468737599">
+
+Then I ran `exploit` to execute the exploit and I was in. Using `uname -a` confirmed that I was into my Metasploitable target machine and I had root access.
+
+<img width="882" alt="Screenshot 2024-09-22 at 14 51 20" src="https://github.com/user-attachments/assets/dd9e701c-7442-425d-bedf-c9bed890170e">
+
+
+
+
+
 
